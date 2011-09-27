@@ -501,12 +501,13 @@ class skInlineCSS
 			}
 		}
 
-		// we can safely assume no selector will contain more than 99 parts,
-		// so let's use 2 digits for each
-		return (int) $specificity[0]
+		/* we can safely assume no selector will contain more than 99 parts,
+		   so let's use 2 digits for each level of specificity, plus space for
+		   a 4-digit sequence counter at the end */
+		return (int) ($specificity[0]
 			. str_pad($specificity[1], 2, '0', STR_PAD_LEFT)
 			. str_pad($specificity[2], 2, '0', STR_PAD_LEFT)
-			. '0000';
+			. '0000');
 	}
 
 
