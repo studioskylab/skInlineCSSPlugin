@@ -177,6 +177,10 @@ class skInlineCSS
 
 				// add new properties into the list
 				foreach ($rule['properties'] as $key => $value) {
+					// if the style was previously defined, remove it
+					unset($properties[$key]);
+
+					// add the new property
 					$properties[$key] = $value;
 				}
 
